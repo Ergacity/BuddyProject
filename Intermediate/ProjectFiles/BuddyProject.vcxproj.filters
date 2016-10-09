@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\BuddyProject.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{1D681C08-9763-41EC-9E26-AEFCB757CA57}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\BuddyProject.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\BuddyProjectEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{F281D48C-D291-49E8-AC9F-52381DD61553}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\BuddyProject">
+			<UniqueIdentifier>{B416B3DA-D234-49BB-B8D0-6C0839A2B396}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\BuddyProject\BuddyProject.Build.cs">
+			<Filter>Source\BuddyProject</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\BuddyProject\BuddyProject.cpp">
+			<Filter>Source\BuddyProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\BuddyProject\BuddyProject.h">
+			<Filter>Source\BuddyProject</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\BuddyProject\BuddyProjectGameMode.cpp">
+			<Filter>Source\BuddyProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\BuddyProject\BuddyProjectGameMode.h">
+			<Filter>Source\BuddyProject</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\BuddyProject\PlayerCharacter.cpp">
+			<Filter>Source\BuddyProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\BuddyProject\PlayerCharacter.h">
+			<Filter>Source\BuddyProject</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
