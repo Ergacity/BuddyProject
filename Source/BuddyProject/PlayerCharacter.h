@@ -26,14 +26,16 @@ public:
 
 	/*GETTERY*/
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-		bool GetCanDoubleJump() { return bCanDoubleJump; };
-	UFUNCTION(BlueprintCallable, Category = "Movement")
-		bool GetIsCrouching() { return bIsCrouching; };
+		bool GetWantToCrouch() { return bWantToCrouch; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		bool GetIsSprinting() { return bIsSprinting; };
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		bool GetJustLanded() { return bJustLanded; };
 	/*SETTERY*/
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-		void SetCanDoubleJump(bool Val) { bCanDoubleJump = Val; };
+		void SetWantToCrouch(bool Val) { bWantToCrouch = Val; };
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void SetJustLanded(bool Val) { bJustLanded = Val; };
 
 protected:
 	/*Spring arm, na którym bêdzie trzyma³a siê kamera*/
@@ -42,6 +44,18 @@ protected:
 	/*Kamera, któr¹ bêdzie patrzy³ gracz*/
 	UPROPERTY(EditDefaultsOnly, Category = "Camera")
 		UCameraComponent* CameraComp;
+	/*Sprawdza, czy kucamy*/
+	UPROPERTY()
+		bool bWantToCrouch;
+	/*Prawda, jeœli dopiero co wyl¹dowaliœmy*/
+	UPROPERTY()
+		bool bJustLanded;
+	/*Sprawdza, czy sprintujemy*/
+	UPROPERTY()
+		bool bIsSprinting;
+	/*Zapamiêtuje podstaw¹ prêdkoœæ postaci*/
+	UPROPERTY()
+		float MovementBasicSpeed;
 
 	/*Wzywana do poruszania postaci na lewo i prawo
 	@param Val - Dawana przez input waroœæ w przedziale <-1, 1>, która okreœla kierunek i si³ê ruchu
@@ -70,16 +84,5 @@ protected:
 		void OnSprintEnd();
 
 private:
-	/*Warunkuje, czy mo¿emy wykonaæ double jumpa*/
-	UPROPERTY()
-		bool bCanDoubleJump;
-	/*Sprawdza, czy kucamy*/
-	UPROPERTY()
-		bool bIsCrouching;
-	/*Sprawdza, czy sprintujemy*/
-	UPROPERTY()
-		bool bIsSprinting;
-	/*Zapamiêtuje podstaw¹ prêdkoœæ postaci*/
-	UPROPERTY()
-		float MovementBasicSpeed;
+
 };

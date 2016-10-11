@@ -13,6 +13,7 @@ class BUDDYPROJECT_API ABuddy : public APlayerCharacter
 {
 	GENERATED_BODY()
 	
+	ABuddy(const FObjectInitializer& ObjectInitializer);
 	
 	
 	
