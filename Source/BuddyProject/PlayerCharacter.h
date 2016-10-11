@@ -74,7 +74,7 @@ protected:
 		void OnCrouchEnd();
 	/*Wzywane kiedy siê przyciœnie skok, oraz puœci skok*/
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-		void OnJumpStart();
+		virtual void OnJumpStart();
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void OnJumpEnd();
 	/*Wzywane kiedy siê przyciœnie sprint, oraz puœci sprint*/

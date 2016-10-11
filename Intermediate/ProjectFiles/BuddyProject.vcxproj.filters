@@ -55,9 +55,15 @@
     <ClInclude Include="..\..\Source\BuddyProject\Buddy.h">
       <Filter>Source\BuddyProject</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\BuddyProject\Bunny.h">
+      <Filter>Source\BuddyProject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\BuddyProject\Buddy.cpp">
+      <Filter>Source\BuddyProject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BuddyProject\Bunny.cpp">
       <Filter>Source\BuddyProject</Filter>
     </ClCompile>
   </ItemGroup>

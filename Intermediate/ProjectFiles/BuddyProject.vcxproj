@@ -420,7 +420,9 @@
     <ClInclude Include="..\..\Source\BuddyProject\BuddyProject.h" />
     <ClCompile Include="..\..\Source\BuddyProject\BuddyProjectGameMode.cpp" />
     <ClInclude Include="..\..\Source\BuddyProject\BuddyProjectGameMode.h" />
+    <ClCompile Include="..\..\Source\BuddyProject\Bunny.cpp" />
     <ClCompile Include="..\..\Source\BuddyProject\PlayerCharacter.cpp" />
+    <ClInclude Include="..\..\Source\BuddyProject\Bunny.h" />
     <ClInclude Include="..\..\Source\BuddyProject\PlayerCharacter.h" />
   </ItemGroup>
   <PropertyGroup>
