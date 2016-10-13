@@ -12,6 +12,9 @@ APlayerCharacter::APlayerCharacter(const FObjectInitializer& ObjectInitializer)
 
 	CameraComp = ObjectInitializer.CreateDefaultSubobject<UCameraComponent>(this, TEXT("Camera Component"));
 	CameraComp->AttachToComponent(SpringComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+
+	SpringComp->RelativeRotation = FRotator(-15.f, -90.f, 0.f);
+	CharacterRotationSpeed = 100.f;
 }
 
 void APlayerCharacter::BeginPlay()
@@ -19,6 +22,8 @@ void APlayerCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	bIsSprinting = false;
+	CurrentFrontYaw = GetActorRotation().Yaw;
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, FString::SanitizeFloat(CurrentFrontYaw));
 }
 
 void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* InputComponent)
@@ -38,13 +43,31 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* InputCom
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick( DeltaTime );
+
+	/*OBRACANIE POSTACI*/
+	if (FMath::Abs(GetDesiredYawRot() - CurrentFrontYaw) > 1.f)
+	{
+		if (CurrentFrontYaw < DesiredYawRot)
+		{
+			CurrentFrontYaw += CharacterRotationSpeed * DeltaTime;
+			GetController()->SetControlRotation(FRotator(0.f, CurrentFrontYaw, 0.f));
+			SpringComp->RelativeRotation = FRotator(-15.f, -90.f + CurrentFrontYaw, 0.f);
+		}
+		else
+		{
+			CurrentFrontYaw -= CharacterRotationSpeed * DeltaTime;
+			GetController()->SetControlRotation(FRotator(0.f, CurrentFrontYaw, 0.f));
+			SpringComp->RelativeRotation = FRotator(-15.f, -90.f + CurrentFrontYaw, 0.f);
+		}
+	}
 }
 //------------------------------MOVEMENT------------------------------
 void APlayerCharacter::MoveX(float Val)
 {
 	if (GetController() && Val != 0.f) //Upewnijmy siê, ¿e mamy controller który bêdzie nas chodzi³ i czy w³aœciwie musimy siê ruszaæ
 	{
-		FVector Dir = GetControlRotation().Vector(); //sprawdzamy swoja rotacje by wiedziec gdzie isc
+		FRotator Rot = GetControlRotation();
+		FVector Dir = Rot.Vector(); //sprawdzamy swoja rotacje by wiedziec gdzie isc
 		AddMovementInput(Dir, Val);
 	}
 }

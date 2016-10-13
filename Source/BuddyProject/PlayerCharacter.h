@@ -23,6 +23,12 @@ public:
 	/*Ustala ile razy szybciej siê biega ze sprintem*/
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 		float SprintSpeedModifier;
+	/*Jaki jest aktualny przód dla postaci?*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+		float CurrentFrontYaw;
+	/*Z jak¹ prêdkoœc¹ postaæ powinna siê obracaæ?*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+		float CharacterRotationSpeed;
 
 	/*GETTERY*/
 	UFUNCTION(BlueprintCallable, Category = "Movement")
@@ -31,11 +37,15 @@ public:
 		bool GetIsSprinting() { return bIsSprinting; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		bool GetJustLanded() { return bJustLanded; };
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		float GetDesiredYawRot() { return DesiredYawRot; };
 	/*SETTERY*/
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void SetWantToCrouch(bool Val) { bWantToCrouch = Val; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void SetJustLanded(bool Val) { bJustLanded = Val; };
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void SetDesiredYawRot(float Val) { DesiredYawRot = Val; };
 
 protected:
 	/*Spring arm, na którym bêdzie trzyma³a siê kamera*/
@@ -56,6 +66,9 @@ protected:
 	/*Zapamiêtuje podstaw¹ prêdkoœæ postaci*/
 	UPROPERTY()
 		float MovementBasicSpeed;
+	/*Jak¹ rotacjê w Yaw chcemy mieæ?*/
+	UPROPERTY()
+		float DesiredYawRot;
 
 	/*Wzywana do poruszania postaci na lewo i prawo
 	@param Val - Dawana przez input waroœæ w przedziale <-1, 1>, która okreœla kierunek i si³ê ruchu

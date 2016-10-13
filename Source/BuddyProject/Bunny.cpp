@@ -26,7 +26,6 @@ ABunny::ABunny(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	SpringComp->CameraLagMaxDistance = 50.f;
 	SpringComp->CameraLagSpeed = 5.f;
 	SpringComp->bInheritYaw = false;
-	SpringComp->RelativeRotation = FRotator(-15.f, -90.f, 0.f);
 	SpringComp->RelativeLocation = FVector(0.f, 0.f, 50.f);
 	SpringComp->TargetArmLength = 800.f;
 
