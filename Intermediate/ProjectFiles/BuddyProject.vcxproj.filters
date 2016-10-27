@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\BuddyProject.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{E4142A91-0697-4291-A4D5-0ED8F98D2BC2}</UniqueIdentifier>
+			<UniqueIdentifier>{0950EFE9-6188-417A-9AE3-C68BB2DBD965}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\BuddyProject.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{51057784-224F-4545-B907-B251FC7E506A}</UniqueIdentifier>
+			<UniqueIdentifier>{16F1267E-A99D-407F-AA9B-76284894208A}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\BuddyProject">
-			<UniqueIdentifier>{200490BB-9AAF-484E-8F01-1FF426EAB2A2}</UniqueIdentifier>
+			<UniqueIdentifier>{B7207A4E-BCD1-4D8A-93DE-7BDEA9EEA7E1}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\BuddyProject\Buddy.cpp">
 			<Filter>Source\BuddyProject</Filter>
@@ -57,16 +57,34 @@
 		<ClInclude Include="..\..\Source\BuddyProject\Bunny.h">
 			<Filter>Source\BuddyProject</Filter>
 		</ClInclude >
+		<ClCompile Include="..\..\Source\BuddyProject\NormalTurret.cpp">
+			<Filter>Source\BuddyProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\BuddyProject\NormalTurret.h">
+			<Filter>Source\BuddyProject</Filter>
+		</ClInclude >
 		<ClCompile Include="..\..\Source\BuddyProject\PlayerCharacter.cpp">
 			<Filter>Source\BuddyProject</Filter>
 		</ClCompile >
 		<ClInclude Include="..\..\Source\BuddyProject\PlayerCharacter.h">
 			<Filter>Source\BuddyProject</Filter>
 		</ClInclude >
+		<ClCompile Include="..\..\Source\BuddyProject\Projectile.cpp">
+			<Filter>Source\BuddyProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\BuddyProject\Projectile.h">
+			<Filter>Source\BuddyProject</Filter>
+		</ClInclude >
 		<ClCompile Include="..\..\Source\BuddyProject\RotationGate.cpp">
 			<Filter>Source\BuddyProject</Filter>
 		</ClCompile >
 		<ClInclude Include="..\..\Source\BuddyProject\RotationGate.h">
+			<Filter>Source\BuddyProject</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\BuddyProject\StaticEnemy.cpp">
+			<Filter>Source\BuddyProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\BuddyProject\StaticEnemy.h">
 			<Filter>Source\BuddyProject</Filter>
 		</ClInclude >
 	</ItemGroup>

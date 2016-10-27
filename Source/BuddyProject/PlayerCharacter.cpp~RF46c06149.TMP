@@ -44,21 +44,19 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* InputCom
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick( DeltaTime );
-	/*JAK SZYBKO OBRACA SIÊ POSTAÆ?*/
-	float FrameRate = 1.f / DeltaTime;
 
 	/*OBRACANIE POSTACI*/
 	if (FMath::Abs(GetDesiredYawRot() - CurrentFrontYaw) > 1.f)
 	{
 		if (CurrentFrontYaw < DesiredYawRot)
 		{
-			CurrentFrontYaw += CharacterRotationSpeed * DeltaTime * FrameRate/60.f;
+			CurrentFrontYaw += CharacterRotationSpeed * DeltaTime;
 			GetController()->SetControlRotation(FRotator(0.f, CurrentFrontYaw, 0.f));
 			SpringComp->RelativeRotation = FRotator(-15.f, -90.f + CurrentFrontYaw, 0.f);
 		}
 		else
 		{
-			CurrentFrontYaw -= CharacterRotationSpeed * DeltaTime * FrameRate / 60.f;
+			CurrentFrontYaw -= CharacterRotationSpeed * DeltaTime;
 			GetController()->SetControlRotation(FRotator(0.f, CurrentFrontYaw, 0.f));
 			SpringComp->RelativeRotation = FRotator(-15.f, -90.f + CurrentFrontYaw, 0.f);
 		}
@@ -79,21 +77,15 @@ void APlayerCharacter::Landed(const FHitResult& Hit)
 {
 	SetJustLanded(true); //Aktywujemy to, ¿e w³aœnie wyl¹dowaliœmy, aby móc wezwaæ zachowania przy l¹dowaniu
 
-	//Wzywamy kucanie lub sprintowanie jeœli trzymaliœmy w powietrzu przycisk
 	if (GetWantToCrouch())
 		OnCrouchStart();
-
-	if (GetWantToSprint())
-		OnSprintStart();
 
 	SetJustLanded(false); //Skoñczyliœmy rzeczy od l¹dowania, wiêc ju¿ nie jesteœmy tu¿ po l¹dowaniu
 }
 
 void APlayerCharacter::OnCrouchStart()
 {
-	if(!GetWantToSprint()) //Sprint nadpisuje kucanie, wiêc nie mo¿emy chcieæ kucaæ kiedy chcemy sprintowaæ
-		SetWantToCrouch(true);
-
+	SetWantToCrouch(true);
 	if (GetCharacterMovement()->IsMovingOnGround() || (GetWantToCrouch() && GetJustLanded())) //Sprawdzamy, czy nie kucamy w powietrzu
 		Crouch();
 }
@@ -116,11 +108,7 @@ void APlayerCharacter::OnJumpEnd()
 
 void APlayerCharacter::OnSprintStart()
 {
-	SetWantToSprint(true);
-	if (GetWantToCrouch()) //Sprint nadpisuje kucanie, wiêc nie mo¿emy chcieæ kucaæ kiedy chcemy sprintowaæ
-		SetWantToCrouch(false);
-
-	if (GetCharacterMovement()->IsMovingOnGround() || (GetWantToSprint() && GetJustLanded())) //Nie mo¿emy sprintowaæ w powietrzu... ale mo¿liwe, ¿e wyl¹dowaliœmy a ju¿ chcieliœmy sprintowaæ
+	if (GetCharacterMovement()->IsMovingOnGround()) //Nie mo¿emy sprintowaæ w powietrzu...
 	{
 		if (bIsCrouched) //Jeœli kucamy, to wstajemy
 			OnCrouchEnd();
@@ -132,7 +120,6 @@ void APlayerCharacter::OnSprintStart()
 
 void APlayerCharacter::OnSprintEnd()
 {
-	SetWantToSprint(false);
 	GetCharacterMovement()->MaxWalkSpeed = MovementBasicSpeed;
 	bIsSprinting = false;
 }

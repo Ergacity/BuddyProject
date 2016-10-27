@@ -34,6 +34,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		bool GetWantToCrouch() { return bWantToCrouch; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
+		bool GetWantToSprint() { return bWantToSprint; };
+	UFUNCTION(BlueprintCallable, Category = "Movement")
 		bool GetIsSprinting() { return bIsSprinting; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		bool GetJustLanded() { return bJustLanded; };
@@ -42,6 +44,8 @@ public:
 	/*SETTERY*/
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void SetWantToCrouch(bool Val) { bWantToCrouch = Val; };
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void SetWantToSprint(bool Val) { bWantToSprint = Val; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void SetJustLanded(bool Val) { bJustLanded = Val; };
 	UFUNCTION(BlueprintCallable, Category = "Movement")
@@ -63,6 +67,9 @@ protected:
 	/*Sprawdza, czy sprintujemy*/
 	UPROPERTY()
 		bool bIsSprinting;
+	/*Prawda, jeœli jesteœmy w powietrzu i trzymamy sprint*/
+	UPROPERTY()
+		bool bWantToSprint;
 	/*Zapamiêtuje podstaw¹ prêdkoœæ postaci*/
 	UPROPERTY()
 		float MovementBasicSpeed;

@@ -13,7 +13,7 @@ ARotationGate::ARotationGate(const FObjectInitializer& ObjectInitializer)
 
 	BoxComp = ObjectInitializer.CreateDefaultSubobject<UBoxComponent>(this, "Collision Comp");
 	RootComponent = BoxComp;
-	BoxComp->SetBoxExtent(FVector(2000.f, 2000.f, 10000.f));
+	BoxComp->SetBoxExtent(FVector(200.f, 200.f, 1000.f));
 	BoxComp->OnComponentBeginOverlap.AddDynamic(this, &ARotationGate::OnComponentBeginOverlap);
 }
 
