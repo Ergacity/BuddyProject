@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\BuddyProject.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{0950EFE9-6188-417A-9AE3-C68BB2DBD965}</UniqueIdentifier>
+			<UniqueIdentifier>{A5F5FBA9-D17E-445D-99A5-1CA73DB4FB22}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\BuddyProject.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{16F1267E-A99D-407F-AA9B-76284894208A}</UniqueIdentifier>
+			<UniqueIdentifier>{877D8D6D-35FF-4287-96ED-533FBEE4CC14}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\BuddyProject">
-			<UniqueIdentifier>{B7207A4E-BCD1-4D8A-93DE-7BDEA9EEA7E1}</UniqueIdentifier>
+			<UniqueIdentifier>{5BF580C6-C7EF-4BEC-AFFA-F94604CF6EAD}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\BuddyProject\Buddy.cpp">
 			<Filter>Source\BuddyProject</Filter>
